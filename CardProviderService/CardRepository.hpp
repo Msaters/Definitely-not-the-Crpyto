@@ -6,10 +6,10 @@
 class CardRepository
 {
 private:
-    std::vector<std::string> gameCardTopics;
+    std::vector<std::string> gameCardTopics_;
 
 public:
     void fetchGameCardTopcis(); 
-    std::vector<std::string>& getGameCardTopics();
-
+    const std::vector<std::string>& getGameCardTopics() const;
+    CardRepository();
 };
