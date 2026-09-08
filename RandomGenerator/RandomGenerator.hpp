@@ -1,18 +1,23 @@
 
 #include <vector>
+#include <string>
+#include <random>
 
 class RandomGenerator
 {
 private:
     const bool canTopicReccur_;
+    std::random_device rd_;
+    std::mt19937 generator_;
 
 public:
-    void getRandomTopicNumbersForPlayer(
-        std::vector<int>& playerRandomNumbersVec
-        , const int wordsPerPlayer);
+    RandomGenerator(const bool canTopicReccur);
 
-    void getRandomCardTopicsForTeam(
-        std::vector<std::string>& teamCardTopics
-        , std::vector<std::string>& gameCardTopics
+    std::vector<int> getRandomTopicNumbersForPlayer(
+        const int wordsPerPlayer
+        , const int cardsPerTeam);
+
+    std::vector<std::string> getRandomCardTopicsForTeam(
+        std::vector<std::string>& gameCardTopics
         , const int cardsPerTeam);
 };
